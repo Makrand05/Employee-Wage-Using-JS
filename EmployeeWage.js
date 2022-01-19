@@ -93,3 +93,27 @@ function totalDaysWorked(numOFDays, dailyWage) {
 }
 
 console.log("7G - ", empDailyWageArray.reduce(totalDaysWorked, 0));
+// UC 8 
+
+console.log("Wolking hours : "+printMap(empDailyWorkingHrs));
+// UC 8
+console.log("Daily emp Wage : "+printMap(empDailyWageMap))
+
+function printMap(map){
+
+    for(let [key, value] of map){
+        console.log(key+" = "+value);
+    }
+}
+
+
+// using reduse 
+function findTotal(totoal,wage){
+    return totoal+wage;
+}
+console.log("total Wage "+Array.from(empDailyWageMap.values()).reduce(findTotal,0));
+// Using map
+let totalWageMap=0;
+function calculateUsingReduce(totalWage){
+    totalWageMap+=totalWage;
+}
