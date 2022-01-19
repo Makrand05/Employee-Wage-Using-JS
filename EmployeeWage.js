@@ -53,3 +53,43 @@ console.log(
 console.log(empDailyWageArray);
 
 
+//US map 7b - Show the Day along with Daily Wage using Array map helper function
+let counter = 0;
+function mapDayWithDaulyWage(dailyWage) {
+  counter++;
+  return counter + " = " + dailyWage;
+}
+let mapDayWithArray = empDailyWageArray.map(mapDayWithDaulyWage);
+console.log(" 7B " + mapDayWithArray);
+
+//UC 7 c Show Days when Full time wage of 160 were earned using filter function
+let fullTimeWage = function (dailyWage) {
+  return dailyWage.toString().includes("160");
+};
+
+let fullTimeDayWaheArray = empDailyWageArray.filter(fullTimeWage);
+console.log("7C -  Emplyess having Full time " + fullTimeDayWaheArray);
+
+//UC 7 d Find the first occurrence when Full Time Wage was earned using find function
+
+let findFirstDayWage = mapDayWithArray.find(fullTimeWage);
+console.log("7d -  Emplyess having Full time First " + findFirstDayWage);
+
+// UC 7 E Check if Every Element of Full Time Wage is truly holding Full time wage
+
+console.log("7E - " + fullTimeDayWaheArray.every(fullTimeWage));
+
+//UC 7 F - Check if there is any Part Time Wage
+let partTimeWage = function (dailyWage) {
+  return dailyWage.toString().includes("80");
+};
+console.log("7F", mapDayWithArray.some(partTimeWage));
+
+// UC 7 G Find the number of days the Employee Worked
+
+function totalDaysWorked(numOFDays, dailyWage) {
+  if (dailyWage > 0) return numOFDays + 1;
+  return numOFDays;
+}
+
+console.log("7G - ", empDailyWageArray.reduce(totalDaysWorked, 0));
