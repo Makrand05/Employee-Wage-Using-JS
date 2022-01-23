@@ -117,3 +117,23 @@ let totalWageMap=0;
 function calculateUsingReduce(totalWage){
     totalWageMap+=totalWage;
 }
+// UC 9 Arrow Functions
+
+let count = 0;
+let totalHours = Array.from(empDailyWorkingHrs.values()). reduce(findTotal, 0);
+let totalSalary = empDailyWageArray.filter(empDailyWage=> empDailyWage> 0).reduce (findTotal, 0);
+
+console.log("UC9A- Emp Wage with Arrow.:  Total Hours: "+ totalHours + "Total Wages: " + totalSalary);
+
+//UC 9 B Show the full workings days, part working days and no working days
+let nonWorkingDays = new Array();
+let partWorkingDays = new Array();
+let fullWorkingDays = new Array();
+
+empDailyWorkingHrs.forEach( (value, key) => { 
+  console.log(value);
+  if (value== 8) fullWorkingDays.push(key); 
+  else if (value== 4) partWorkingDays.push(key); 
+  else nonWorkingDays.push(key);
+});
+console.log("Full Working Days: "+fullWorkingDays); console.log("Part Working Days: "+partWorkingDays); console.log("Non Working Days: "+nonWorkingDays);
